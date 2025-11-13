@@ -1,6 +1,6 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 NAME = Bureaucrat
-SRCS = main.cpp Bureaucrat.cpp main.cpp
+SRCS = main.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -f
 
