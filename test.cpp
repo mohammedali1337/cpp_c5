@@ -95,47 +95,89 @@ using namespace std;
 // }
 
 
-int compareage(int sonAge, int momAge)
+// int compareage(int sonAge, int momAge)
+// {
+//     if (sonAge >= momAge)
+//         throw 1;
+//     else if (sonAge <= 0)
+//         throw 2;
+//     else if (momAge <= 0)
+//             throw 3;
+//     else if (momAge - sonAge < 12)
+//         throw 4;
+//     return momAge - sonAge;
+// }
+
+
+// int main(void)
+// {
+//     try
+//     {
+//         compareage(26, 24);
+//     }
+//     catch (int e)
+//     {
+//         switch (e)
+//         {
+//         case 1:
+//             cout << "Error: son's age can't be less than his mom! \n" << endl;
+//             break;
+//         case 2:
+//             cout << "Error: Son's age can't be less than or equal zero \n" << endl;
+//             break;
+//         case 3:
+//             cout <<  "Error: Mom's age can't be less than or equal zero \n" << endl;
+//             break;
+//         case 4:
+//             cout << "Error: Mom's age should be 12 years bigger than son age \n" << endl;
+//             break;
+//         }
+//     }
+
+//     cout << "the program is still working properly " << endl;
+    
+//     return 0;
+    
+// }
+
+
+
+
+
+
+// عند استدعاءها نمرر لها عدد يمثل العمر checkAge() هنا قمنا بتعريف دالة إسمها
+void checkAge(int age)
 {
-    if (sonAge >= momAge)
-        throw 1;
-    else if (sonAge <= 0)
-        throw 2;
-    else if (momAge <= 0)
-            throw 3;
-    else if (momAge - sonAge < 12)
-        throw 4;
-    return momAge - sonAge;
+    // في حال كان العمر الذي تم تمريره لها أصغر أو يساوي 0 سترمي إستثناء
+    if (age <= 0)
+        throw "Error: Entered age can't be less or equal zero!";
+    
+    // في حال كان العمر الذي تم تمريره لها أكبر من 130 سترمي إستثناء
+    if (age > 130)
+        throw "Error: Entered age is impossible!";
+    
+    // في حال كان العمر الذي تم تمريره لها أصغر من 18 سترمي إستثناء
+    if (age < 18)
+        throw "Error: You are not allowed!";
+
+    // إذا لم يتم رمي أي إستثناء سيتم تنفيذ أمر الطباعة التالي و الذي يعني أن العمر مقبول
+    cout << "Age confirmed!";
 }
 
 
-int main(void)
+// main() هنا قمنا بتعريف الدالة
+int main()
 {
+    // و تمرير القيمة 15 لها checkAge() هنا قمنا باستدعاء الدالة 
     try
     {
-        compareage(26, 24);
+        checkAge(19);
     }
-    catch (int e)
+    // بالتقاطه و طباعة الجملة الموضوعة فيه catch() ستقوم الدالة try أي إستثناء يتم رميه في الجملة
+    catch (...)
     {
-        switch (e)
-        {
-        case 1:
-            cout << "Error: son's age can't be less than his mom! \n" << endl;
-            break;
-        case 2:
-            cout << "Error: Son's age can't be less than or equal zero \n" << endl;
-            break;
-        case 3:
-            cout <<  "Error: Mom's age can't be less than or equal zero \n" << endl;
-            break;
-        case 4:
-            cout << "Error: Mom's age should be 12 years bigger than son age \n" << endl;
-            break;
-        }
+        cout << "Oops.. Something is not right!";
     }
 
-    cout << "the program is still working properly " << endl;
-    
     return 0;
-    
 }
