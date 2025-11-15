@@ -28,5 +28,24 @@ int Form::getExecGrade() const { return execGrade; }
 
 void Form::beSigned(Bureaucrat &ob)
 {
-    
+    if (ob.getGrade() > this->signGrade)
+        throw GradeTooLowException();
+    this->isSigned = true;
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return ("Grade too high for form!");
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low for form!");
+}
+
+std::ostream &operator<<(std::ostream &os, const Form &f)
+{
+    os << "Form " << f.getName() << "[signGrade: " << f.getSignGrade() << ", execGrade: " << f.getExecGrade()
+    << ", isSigned: " << (f.getIsSigned() ? "true" : "false") << "]";
+    return os;
 }
