@@ -1,5 +1,5 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
-NAME = Bureaucrat
+NAME = Form
 SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -f
@@ -19,3 +19,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+run: all clean
+	clear
+	./$(NAME)

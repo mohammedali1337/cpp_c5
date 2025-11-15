@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-
+class Bureaucrat;
 class Form
 {
     private:
@@ -34,5 +34,5 @@ class Form
         };
     
 };
-
+std::ostream &operator<<(std::ostream &os, const Form &f);
 #endif

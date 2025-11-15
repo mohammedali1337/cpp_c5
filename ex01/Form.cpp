@@ -6,7 +6,7 @@ Form::Form(std::string na, int sinG, int execG): name(na), isSigned(false), sign
 {
     if (sinG <= 0 || execG <= 0)
         throw GradeTooHighException();
-    if (sinG > 150 || execG <= 150)
+    if (sinG >= 150 || execG >= 150)
         throw GradeTooLowException();
 }
 
