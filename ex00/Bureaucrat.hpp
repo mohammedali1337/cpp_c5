@@ -6,8 +6,8 @@
 class Bureaucrat
 {
     private:
-        const std::string name;
-        int grade;
+        const std::string   name;
+        int                 grade;
     public:
         Bureaucrat();
         Bureaucrat(const std::string &n, int g);
@@ -33,5 +33,7 @@ class Bureaucrat
             const char* what() const throw();
         };
 };
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+
 #endif

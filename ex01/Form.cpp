@@ -6,7 +6,7 @@ Form::Form(std::string na, int sinG, int execG): name(na), isSigned(false), sign
 {
     if (sinG <= 0 || execG <= 0)
         throw GradeTooHighException();
-    if (sinG >= 150 || execG >= 150)
+    if (sinG > 150 || execG > 150)
         throw GradeTooLowException();
 }
 
@@ -16,19 +16,22 @@ Form::~Form(){};
 
 Form& Form::operator= (const Form& ob)
 {
-    if (&ob != this)
+    if (this != &ob)
         this->isSigned = ob.isSigned;
     return (*this);
 }
 
 const std::string &Form::getName() const { return name; }
+
 bool Form::getIsSigned() const { return isSigned; }
+
 int Form::getSignGrade() const { return signGrade; }
+
 int Form::getExecGrade() const { return execGrade; }
 
 void Form::beSigned(Bureaucrat &ob)
 {
-    if (ob.getGrade() > this->signGrade)
+    if (this->getSignGrade() < ob.getGrade())
         throw GradeTooLowException();
     this->isSigned = true;
 }

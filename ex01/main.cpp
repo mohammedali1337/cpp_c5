@@ -5,25 +5,27 @@ int main()
 {
     try
     {
-        Bureaucrat b1("ali", 50);
-        std::cout << "execute here " << std::endl;
-        Form f1("topsecret", 30, 10);
-        Form f2("topsecret", 120, 100);
+        Bureaucrat ob1("simo", 2);
+        Form of2("form2", 3, 150);
+        Form of1("form1", 1, 10);
 
-        std::cout << b1 << std::endl;
-        std::cout << f1 << std::endl;
-        std::cout << f2 << std::endl;
 
-        b1.signForm(f1);
-        b1.signForm(f2);
+        std::cout << of1 << std::endl;
+        std::cout << of2 << std::endl;
 
-        std::cout << f1 << std::endl;
-        std::cout << f2 << std::endl;
+        ob1.signForm(of1);
+        ob1.signForm(of2);
+
+        std::cout << of1 << std::endl;
+        std::cout << of2 << std::endl;
+
+
+        Form of3("form3", 151, 10);
     }
     catch (std::exception &e)
     {
+        std::cout << "catch exception " << std::endl;
         std::cout << "exception : " << e.what() << std::endl;
     }
-
     return 0;
 }
