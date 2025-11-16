@@ -4,6 +4,7 @@
 class ShrubberyCreationForm: public Form
 {
     ShrubberyCreationForm(std::string name);
+    void execute(Bureaucrat const & executor) const;
 };
 
 #endif
