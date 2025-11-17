@@ -1,10 +1,21 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
-#include "Form.hpp"
-class PresidentialPardonForm: public Form
+#include "AForm.hpp"
+#include <string>
+
+class AForm;
+
+class PresidentialPardonForm: public AForm
 {
-    PresidentialPardonForm(std::string name);
-    void execute(Bureaucrat const & executor) const;
+    private:
+        std::string target;
+        PresidentialPardonForm();
+        virtual void performAction() const ;
+    public:
+        PresidentialPardonForm(std::string name);
+        PresidentialPardonForm(const PresidentialPardonForm& ob);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& ob);
+        virtual ~PresidentialPardonForm();
 };
 
 #endif
