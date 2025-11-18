@@ -14,12 +14,12 @@ class AForm
         bool                _isSigned;
         const int           _signGrade;
         const int           _execGrade;
-        AForm();
 
     protected:
         virtual void performAction() const = 0; 
 
     public:
+        AForm();
         AForm(const std::string& name, int signGrade, int execGrade);
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);

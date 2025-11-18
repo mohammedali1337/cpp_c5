@@ -12,12 +12,12 @@ class ShrubberyCreationForm: public AForm
     private:
         const std::string target;
         ShrubberyCreationForm();
-        virtual void performAction() const;
+        void performAction() const;
     public:
         ShrubberyCreationForm(std::string name);
         ShrubberyCreationForm(const ShrubberyCreationForm& ob);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& ob);
-        virtual ~ShrubberyCreationForm();
+        ~ShrubberyCreationForm();
 };
 
 #endif

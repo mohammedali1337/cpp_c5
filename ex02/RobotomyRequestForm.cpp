@@ -20,9 +20,10 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void RobotomyRequestForm::performAction() const
 {
-    std::cout << "* VRRRR............... BZZZZZZ.... CLANK! *"<< std::endl;
+    srand(time(NULL));
 
-    if (std::rand() % 2)
+    std::cout << "* FZzzzzzzzzzzzzzzz ta9smrmla9 .........................! *"<< std::endl;
+    if (rand() % 2)
     {
         std::cout << this->target << "has been robotomized successfully!" << std::endl;
     }
