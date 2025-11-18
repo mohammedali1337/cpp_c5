@@ -11,7 +11,7 @@ int main()
 {
     try 
     {
-        Bureaucrat ali("ali", 50);
+        Bureaucrat ali("ali", 146);
         Bureaucrat boss("boss", 1);
 
         ShrubberyCreationForm f1("home");
@@ -33,7 +33,7 @@ int main()
 
         std::cout << "\n--- sign and execute with hight grade ---\n";
         boss.signForm(f1);
-        boss.executeForm(f2);
+        boss.executeForm(f1);
 
         std::cout << "\n--- robotomy test ---\n";
         boss.signForm(f2);

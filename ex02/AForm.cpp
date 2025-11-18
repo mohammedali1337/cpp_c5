@@ -1,22 +1,15 @@
 #include "AForm.hpp"
-#include "Bureaucrat.hpp" // Full include is needed here for getGrade()
+#include "Bureaucrat.hpp"
 
-/*
-** ------------------------ Orthodox Canonical Form ------------------------
-*/
-
-// Private Default Constructor
 AForm::AForm() : 
     _name("Default"), 
     _isSigned(false), 
     _signGrade(150), 
     _execGrade(150)
 {
-    // This private constructor shouldn't be called, 
-    // but we initialize const members just in case.
+
 }
 
-// Parameterized Constructor
 AForm::AForm(const std::string& name, int signGrade, int execGrade) :
     _name(name),
     _isSigned(false),
@@ -29,37 +22,27 @@ AForm::AForm(const std::string& name, int signGrade, int execGrade) :
         throw AForm::GradeTooLowException();
 }
 
-// Copy Constructor
 AForm::AForm(const AForm& other) :
     _name(other._name),
     _signGrade(other._signGrade),
     _execGrade(other._execGrade)
 {
-    // We only copy the non-const member
     this->_isSigned = other._isSigned;
 }
 
-// Copy Assignment Operator
 AForm& AForm::operator=(const AForm& other)
 {
     if (this != &other)
     {
-        // We can't assign to const members (_name, _signGrade, _execGrade)
-        // We can only assign the non-const members.
         this->_isSigned = other._isSigned;
     }
     return *this;
 }
 
-// Virtual Destructor (MUST have a body)
 AForm::~AForm()
 {
-    // Destructor body
-}
 
-/*
-** ------------------------------ Getters ------------------------------
-*/
+}
 
 const std::string& AForm::getName() const
 {
@@ -81,10 +64,6 @@ int AForm::getExecGrade() const
     return this->_execGrade;
 }
 
-/*
-** -------------------------- Member Functions ---------------------------
-*/
-
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > this->_signGrade)
@@ -94,7 +73,6 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
     this->_isSigned = true;
 }
 
-// The "elegant" execute function
 void AForm::execute(const Bureaucrat& executor) const
 {
     if (this->_isSigned == false)
@@ -107,11 +85,6 @@ void AForm::execute(const Bureaucrat& executor) const
     }
     this->performAction();
 }
-
-
-/*
-** ------------------------- Exception Functions -------------------------
-*/
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
@@ -127,10 +100,6 @@ const char* AForm::FormNotSignedException::what() const throw()
 {
     return "AForm: Form is not signed!";
 }
-
-/*
-** ---------------------- operator<< overload ----------------------
-*/
 
 std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
