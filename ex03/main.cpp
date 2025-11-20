@@ -27,11 +27,15 @@ int main()
         if (f2) std::cout << *f2 << std::endl;
         if (f3) std::cout << *f3 << std::endl;
         if (invalidss) std::cout << *invalidss << std::endl;
-
+        
         if (f1) boss.signForm(*f1);
         if (f2) boss.signForm(*f2);
         if (f3) boss.signForm(*f3);
         if (invalidss) boss.signForm(*invalidss);
+        
+        if (f1) std::cout << *f1 << std::endl;
+        if (f2) std::cout << *f2 << std::endl;
+        if (f3) std::cout << *f3 << std::endl;
         
     }catch (std::exception &e){
         std::cout << "exception: " << e.what() << std::endl;
