@@ -4,8 +4,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
-#include <cstdlib> // For std::srand
-#include <ctime>   // For std::time
+#include <cstdlib>
+#include <ctime>
 
 int main()
 {
