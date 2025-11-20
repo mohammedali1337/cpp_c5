@@ -1,37 +1,38 @@
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
-#include <cstdlib> // For std::srand
-#include <ctime>   // For std::time
+#include <cstdlib> 
+#include <ctime>   
 
 int main()
 {
     try 
     {
-        Bureaucrat ali("ali", 146);
+        Intern someRandomIntern;
+        Bureaucrat ali("ali", 100);
         Bureaucrat boss("boss", 1);
+        Bureaucrat miniboos("miniboss", 140);
 
-        ShrubberyCreationForm f1("home");
-        RobotomyRequestForm f2("bender");
-        PresidentialPardonForm f3("marvin");
+        AForm *f1 = someRandomIntern.makeForm("shrubbery creation", "home");
+        AForm *f2 = someRandomIntern.makeForm("robotomy request", "bender");
+        AForm *f3 = someRandomIntern.makeForm("presidential pardon", "niza");
+        AForm *invalidss = someRandomIntern.makeForm("invalid", "??");
 
-        std::cout << ali << std::endl;
-        std::cout << f1 << std::endl;
 
-        ali.signForm(f1);
+        if (f1) std::cout << *f1 << std::endl;
+        if (f2) std::cout << *f2 << std::endl;
+        if (f3) std::cout << *f3 << std::endl;
+        if (invalidss) std::cout << *invalidss << std::endl;
 
-        ali.executeForm(f1);
-
-        boss.executeForm(f1);
-
-        boss.signForm(f2);
-        boss.executeForm(f2);
-
-        boss.signForm(f3);
-        boss.executeForm(f3);
+        if (f1) boss.signForm(*f1);
+        if (f2) boss.signForm(*f2);
+        if (f3) boss.signForm(*f3);
+        if (invalidss) boss.signForm(*invalidss);
+        
     }catch (std::exception &e){
         std::cout << "exception: " << e.what() << std::endl;
     }
