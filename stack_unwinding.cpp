@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -46,6 +47,7 @@ void f3()
 
 int main(void)
 {
-    f3();
+    std::cout << std::setprecision(1) << 22.345; 
+    // f3();
     return 0;
 }
