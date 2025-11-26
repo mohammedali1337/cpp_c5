@@ -97,10 +97,7 @@ void ScalarConverter::convert(std::string literal)
     double val = std::strtod(literal.c_str(), &end);
     std::string remainder(end);
 
-    bool isfloat = (remainder == "f");
-    bool isdouble = (remainder == "");
-
-    if (!isfloat && !isdouble)
+    if (remainder != "f" && remainder != "")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
