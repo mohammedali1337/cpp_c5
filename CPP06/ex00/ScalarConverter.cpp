@@ -19,7 +19,7 @@ static void printChar(double val)
 {
     std::cout << "char: ";
 
-    if (std::isnan(val) || std::isinf(val))
+    if (isnan(val) || isinf(val))
     {
         std::cout << "impossible" << std::endl;
         return ;
