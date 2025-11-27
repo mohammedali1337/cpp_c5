@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXX_F) $(OBJS) -o $(NAME)
 
-%.o: %.cpp Serializer.hpp
+%.o: %.cpp Serializer.hpp Data.hpp
 	 	$(CXX) $(CXX_F) -c $< -o $@
 clean:
 	rm -f $(OBJS)
