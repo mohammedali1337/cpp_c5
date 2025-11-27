@@ -1,13 +1,7 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 #include <iostream>
-
-struct Data
-{
-    std::string name;
-    int x;
-};
-
+#include "Data.hpp"
 
 class Serializer
 {
@@ -19,7 +13,6 @@ class Serializer
     public:
         static uintptr_t serialize(Data* ptr);
         static Data* deserialize(uintptr_t raw);
-}
-
+};
 
 #endif
