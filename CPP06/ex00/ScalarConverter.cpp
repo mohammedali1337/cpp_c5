@@ -43,7 +43,7 @@ static void printInt(double val)
 {
     std::cout << "int: ";
 
-    if (std::isnan(val) || std::isinf(val) || val < std::numeric_limits<int>::min() || val > std::numeric_limits<int>::max())
+    if (std::isnan(val) || std::isinf(val) || val < INT_MIN || val > INT_MAX)
         std::cout << "impossible" << std::endl;
     else
         std::cout << static_cast<int>(val) << std::endl;
