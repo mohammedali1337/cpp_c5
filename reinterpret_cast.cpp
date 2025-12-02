@@ -27,17 +27,20 @@ int main()
     // converting the pointer of 's' to,
     // pointer of int type in 'p'.
     int* p = reinterpret_cast<int*>(&s);
+    long *pLong = reinterpret_cast<long *>(&s);
 
-    cout << sizeof(s) << endl;
+    cout << "value of pLong : " << *pLong << endl;
+
+    cout << "size of : " << sizeof(s) << endl;
 
     // printing the value currently pointed by *p
-    cout << *p << endl;
+    cout << "value of p: " << *p << endl;
 
     // incrementing the pointer by 1
     p++;
 
     // printing the next integer value
-    cout << *p << endl;
+    cout << "value of p after ++p: " << *p << endl;
 
     p++;
 
@@ -47,7 +50,7 @@ int main()
 
     // printing the character value
     // pointed by (*ch)
-    cout << *ch << endl;
+    cout << "value of ch after p++: " << *ch << endl;
 
     ch++;
 
@@ -57,7 +60,8 @@ int main()
     data type of *n to be bool. */
 
     bool* n = reinterpret_cast<bool*>(ch);
-    cout << *n << endl;
+
+    cout << "value of n after ch++: " << *n << endl;
 
     // we can also use this line of code to
     // print the value pointed by (*ch).
