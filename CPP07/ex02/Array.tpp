@@ -1,5 +1,5 @@
 #pragma once 
-#include "Array.hpp"
+
 
 template <typename T>
 Array<T>::Array() : arr(NULL), _size(0){}
@@ -44,28 +44,36 @@ Array<T> &Array<T>::operator=(const Array &ob)
 }
 
 template <typename T>
-T& Array::operator[](unsigned int index)
+Array<T>::~Array()
 {
-    if (_size <= index)
-    {
-        throw outOfBoundsException();
-    }
-    return this.arr[index];
+    if (this->arr)
+        delete[] this->arr;
 }
 
-const T& Array::operator[](unsigned int index) const
+template <typename T>
+T& Array<T>::operator[](unsigned int index)
 {
     if (_size <= index)
     {
         throw outOfBoundsException();
     }
-    return this.arr[index];
+    return this->arr[index];
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int index) const
+{
+    if (_size <= index)
+    {
+        throw outOfBoundsException();
+    }
+    return this->arr[index];
 }
 
 template <typename T>
 unsigned int Array<T>::size() const
 {
-    return this._size;
+    return this->_size;
 }
 
 template <typename T>

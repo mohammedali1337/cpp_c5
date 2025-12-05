@@ -28,4 +28,4 @@ class Array
 
 };
 
-#include "MyClass.tpp"
+#include "Array.tpp"
