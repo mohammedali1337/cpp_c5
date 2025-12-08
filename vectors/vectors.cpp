@@ -98,16 +98,7 @@ int main(void)
 
 
     }
-
-
-
-
-
-
-
-
-
-
+    cout << endl << "-----------------------------------------------------------" << endl;
     {
         vector<int> myVector = {1, 2, 3, 4, 5};
 
@@ -117,10 +108,14 @@ int main(void)
         for (size_t i = 0 ; i < myVector.size(); i++)
             cout << myVector[i] << " ";
 
+        cout << endl << endl;
         myVector.insert(myVector.begin() + 3, 111);
+
+        
         for (size_t i = 0 ; i < myVector.size(); i++)
             cout << myVector[i] << " ";
     }
+
     return 0;
 
 
