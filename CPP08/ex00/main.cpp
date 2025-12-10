@@ -4,6 +4,7 @@
 int main(void)
 {
     std::vector<int> myVector;
+    std::cout << sizeof(myVector) << std::endl;
 
     myVector.push_back(2);
     myVector.push_back(3);
