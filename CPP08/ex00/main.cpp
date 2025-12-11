@@ -22,37 +22,6 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
-    
-    std::cout << "--------------------------list container test--------------------------" << std::endl;
-
-    std::list<int> myList;
-
-    myList.push_back(1);
-    myList.push_back(3);
-    myList.push_back(14);
-    myList.push_back(13);
-    
-    try
-    {
-        std::list<int>::iterator it = easyfind(myList, 2);
-        std::cout << "should throw exception " << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-        try
-        {
-            std::list<int>::iterator it = easyfind(myList, 14);
-            std::cout << "find value: " << *it << std::endl;
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-        
-    }
-    
 
     return 0;
-
 }

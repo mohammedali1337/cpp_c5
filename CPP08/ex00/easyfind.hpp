@@ -2,12 +2,9 @@
 
 #include <iostream>
 #include <exception>
-// #include <stdexcept>
 #include <iterator>
 #include <algorithm>
 #include <vector>
-
-
 
 template <typename T >
 typename T::iterator easyfind(T & container, int number_to_find)

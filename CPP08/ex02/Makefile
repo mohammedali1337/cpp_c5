@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXX_F) $(OBJS) -o $(NAME)
 
-%.o: %.c MutantStack.hpp
+%.o: %.cpp MutantStack.hpp
 	 	$(CXX) $(CXX_F) -c $< -o $@
 clean:
 	rm -f $(OBJS)
