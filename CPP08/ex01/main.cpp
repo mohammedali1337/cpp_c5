@@ -29,14 +29,15 @@ int main()
         Span sp2(10);
 
         std::vector<int> vec;
-        vec.push_back(1);
-        vec.push_back(100);
-        vec.push_back(50);
-        vec.push_back(75);
+        for (int i = 0; i < 10; i++)
+            vec.push_back(std::rand());
+        
+        for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+            std::cout << *it << " " ;
 
         sp2.addRange(vec.begin(), vec.end());
 
-        std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
+        std::cout << std::endl << "Shortest span: " << sp2.shortestSpan() << std::endl;
         std::cout << "Longest span : " << sp2.longestSpan() << std::endl;
     }
     catch (std::exception &e)
@@ -51,7 +52,6 @@ int main()
         sp3.addNumber(10);
         sp3.addNumber(20);
 
-        // This should throw
         sp3.addNumber(30);
     }
     catch (std::exception &e)
@@ -65,7 +65,6 @@ int main()
         Span sp4(5);
         sp4.addNumber(42);
 
-        // Should throw (only 1 number)
         std::cout << sp4.shortestSpan() << std::endl;
     }
     catch (std::exception &e)

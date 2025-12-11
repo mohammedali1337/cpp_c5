@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXX_F) $(OBJS) -o $(NAME)
 
-%.o: %.c Span.hpp
+%.o: %.cpp Span.hpp
 	 	$(CXX) $(CXX_F) -c $< -o $@
 clean:
 	rm -f $(OBJS)
