@@ -11,7 +11,13 @@ int main(int c, char **v)
     }
 
     BitcoinExchange btc;
-    btc.run(v[1]);
+    try{
+        btc.run(v[1]);
+    }
+    catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
     
     return 0;
 }

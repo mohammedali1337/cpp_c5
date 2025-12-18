@@ -3,15 +3,16 @@
 #include <map>
 #include <algorithm>
 #include <fstream>
+#include <exception>
 
 class BitcoinExchange
 {
     private:
         std::map<std::string, double> dataBase;
-        void    loadDataBase(const std::string& fileName);
+        void    loadDataBase();
         std::string trim(const std::string& str);
         bool isValidDate(const std::string& date);
-        bool isValidValue(const float& value);
+        bool isValidValue(const double& value);
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& ob);
