@@ -117,7 +117,7 @@ bool BitcoinExchange::isValidValue(const double& value)
 	}
 	if (value > 1000)
 	{
-		std::cout << "Error: not a positive number." << std::endl;
+		std::cout << "Error: too large a number. " << std::endl;
 		return false;
 	}
 	return true;
