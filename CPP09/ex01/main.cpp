@@ -11,7 +11,6 @@ int main(int c, char **v)
     RPN mathEx;
     try
     {
-        /* code */
         mathEx.run(v[1]);
     }
     catch(const std::exception& e)

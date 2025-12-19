@@ -38,7 +38,7 @@ void RPN::run(std::string input)
                 result = a - b;
             else if (input[i] == '*')
                 result = a * b;
-            else
+            else if (input[i] == '/')
             {
                 if (b == 0)
                     throw std::runtime_error("Error");
