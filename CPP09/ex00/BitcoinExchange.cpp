@@ -40,7 +40,7 @@ void BitcoinExchange::loadDataBase()
 		size_t pos = line.find(',');
 		if (pos == std::string::npos)
 			continue;
-		dataBase[line.substr(0, pos)] = std::stod(line.substr(pos + 1));
+		dataBase[line.substr(0, pos)] = std::strtod(line.substr(pos + 1).c_str(), NULL);
 	}
 
 	file.close();
@@ -78,9 +78,10 @@ void BitcoinExchange::run(const std::string& filename)
 			std::cout << "Error: bad input => " << date << std::endl;
 			continue;
 		}
-		double value = std::stod(valueStr);
-		if (!isValidValue(value))
+		if (!isValidValue(valueStr))
 			continue;
+		
+		double value = std::strtod(valueStr.c_str(), NULL);
 		
 		std::map<std::string, double>::const_iterator it = dataBase.lower_bound(date);
 
@@ -108,23 +109,35 @@ std::string BitcoinExchange::trim(const std::string& str)
 	return str.substr(first, (last - first + 1));
 }
 
-bool BitcoinExchange::isValidValue(const double& value)
+bool BitcoinExchange::isValidValue(const std::string& valueStr)
 {
-	if (value < 0)
+	if (valueStr.empty() || valueStr == ".")
 	{
-		std::cout << "Error: not a positive number." << std::endl;
+		std::cout << "Error: bad input => " << valueStr << std::endl;
 		return false;
 	}
-	if (value > 1000)
+	char* endptr;
+	double value = std::strtod(valueStr.c_str(), &endptr);
+	if (*endptr != '\0')
 	{
-		std::cout << "Error: too large a number. " << std::endl;
+		std::cout << "Error: bad input => " << valueStr << std::endl;
 		return false;
 	}
+	if (value < 0) {
+        std::cout << "Error: not a positive number." << std::endl;
+        return false;
+    }
+    if (value > 1000) {
+        std::cout << "Error: too large a number." << std::endl;
+        return false;
+    }
 	return true;
 }
 
 bool BitcoinExchange::isValidDate(const std::string& date)
 {
+	if (date.length() > 10)
+		return false;
 	size_t firstDash = date.find('-');
 	size_t secondDash = date.find('-', firstDash + 1);
 	std::string year(date.substr(0, firstDash));
@@ -132,9 +145,9 @@ bool BitcoinExchange::isValidDate(const std::string& date)
 	std::string day(date.substr(secondDash + 1));
 	int yearInt, monthInt, dayInt;
 
-	yearInt = std::stoi(year);
-	monthInt = std::stoi(month);
-	dayInt = std::stoi(day);
+	yearInt = std::atoi(year.c_str());
+	monthInt = std::atoi(month.c_str());
+	dayInt = std::atoi(day.c_str());
 
 	if (yearInt < 2009 || yearInt > 2025)
 		return false;

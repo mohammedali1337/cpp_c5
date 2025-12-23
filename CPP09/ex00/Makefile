@@ -1,4 +1,4 @@
-CXX			= c++
+CXX			= g++
 CXX_F		= -Wall -Wextra -Werror -std=c++98
 NAME        = btc
 SRCS        = main.cpp BitcoinExchange.cpp
