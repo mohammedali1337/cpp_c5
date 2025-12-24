@@ -47,5 +47,8 @@ void RPN::run(std::string input)
             this->_stack.push(result);
         }
     }
-    std::cout << this->_stack.top() << std::endl;
+    if (_stack.size() == 1)
+        std::cout << this->_stack.top() << std::endl;
+    else
+        throw std::runtime_error("Error");
 }
