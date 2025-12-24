@@ -1,4 +1,5 @@
-#pragma once 
+#pragma once
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,7 +18,7 @@ class PmergeMe
         int _getJacobsthal(int n);
         
         void _mergeInsertSortVector(std::vector<int>& arr);
-        void _insertIntVector(std::vector<int>& mainChain, std::vector<int>& pendChain);
+        void _insertInVector(std::vector<int>& mainChain, std::vector<int>& pendChain);
 
         void _mergeInsertSortDeque(std::deque<int>& arr);
         void _insertInDeque(std::deque<int>& mainChain, std::deque<int>& pendChain);
