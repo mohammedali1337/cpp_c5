@@ -11,7 +11,6 @@ int main(int c, char **v)
     PmergeMe PmergeMeOb;
     try
     {
-        /* code */
         PmergeMeOb.run(c, v);
     }
     catch(const std::exception& e)

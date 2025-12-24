@@ -10,7 +10,7 @@
 class PmergeMe
 {
     private:
-        std::vector<int> _vectorDta;
+        std::vector<int> _vectorData;
         std::deque<int> _dequeData;
 
         void _parseNumber(int c, char **v);
