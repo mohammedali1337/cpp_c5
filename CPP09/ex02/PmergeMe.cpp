@@ -23,11 +23,9 @@ void PmergeMe::run(int c, char **v)
 {
     _parseNumber(c, v);
     std::cout << "Before:   ";
-    size_t printLimit = (_vectorData.size() > 5) ? 5 : _vectorData.size();
+    size_t printLimit = _vectorData.size();
     for (size_t i = 0; i < printLimit; i++)
         std::cout << _vectorData[i] << " ";
-    if (_vectorData.size() > 5)
-        std::cout << "[...]";
     std::cout << std::endl;
 
     clock_t startVec = clock();
@@ -43,8 +41,6 @@ void PmergeMe::run(int c, char **v)
     std::cout << "After:    ";
     for (size_t i = 0; i < printLimit; i++)
         std::cout << _vectorData[i] << " ";
-    if (_vectorData.size() > 5)
-        std::cout << "[...]";
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << _vectorData.size() 
