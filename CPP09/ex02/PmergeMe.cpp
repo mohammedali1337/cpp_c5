@@ -56,6 +56,8 @@ void PmergeMe::_parseNumber(int c, char **v)
     for (int i = 1; i < c; i++)
     {
         std::string arg = v[i];
+        if (arg.empty())
+            continue;
         for (size_t j = 0; j < arg.length(); j++)
         {
             if (!isdigit(arg[j]))
@@ -64,6 +66,8 @@ void PmergeMe::_parseNumber(int c, char **v)
         long val = std::atol(arg.c_str());
         if (val < 0 || val > INT_MAX)
             throw std::runtime_error("Error: Number out of range. ");
+        if (std::find(_vectorData.begin(), _vectorData.end(), static_cast<int>(val)) != _vectorData.end())
+            throw std::runtime_error("Error: Duplicate number found. ");
         _vectorData.push_back(static_cast<int>(val));
         _dequeData.push_back(static_cast<int>(val));
     }
@@ -169,19 +173,13 @@ void PmergeMe::_insertInVector(std::vector<int>& mainChain, std::vector<int>& pe
 
         size_t limit = last_pos;
 
-        for (size_t i = current_pos; ; i--)
+        for (size_t i = current_pos + 1; i > limit ; i--)
         {
-            if (i < limit)
-                break;
-            
-            int val = pendChain[i];
+            int val = pendChain[i - 1];
 
             std::vector<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), val);
             mainChain.insert(it, val);
-
             inserted_count++;
-            if (i == 0)
-                break;;
         }
         last_pos = current_pos + 1;
     }
@@ -262,19 +260,13 @@ void PmergeMe::_insertInDeque(std::deque<int>& mainChain, std::deque<int>& pendC
 
         size_t limit = last_pos;
 
-        for (size_t i = current_pos; ; i--)
+        for (size_t i = current_pos + 1;i > limit ; i--)
         {
-            if (i < limit)
-                break;
+            int val = pendChain[i - 1];
 
-            int val = pendChain[i];
             std::deque<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), val);
             mainChain.insert(it, val);
-
             inserted_count++;
-            
-            if (i == 0)
-                break;
         }
         last_pos = current_pos + 1;
     }
