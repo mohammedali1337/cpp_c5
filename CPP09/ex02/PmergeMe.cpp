@@ -31,12 +31,12 @@ void PmergeMe::run(int c, char **v)
     clock_t startVec = clock();
     _mergeInsertSortVector(_vectorData);
     clock_t endVec = clock();
-    double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 10;
+    double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;
 
     clock_t startDeq = clock();
     _mergeInsertSortDeque(_dequeData);
     clock_t endDeq = clock();
-    double timeDeq = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 10;
+    double timeDeq = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000.0;
 
     std::cout << "After:    ";
     for (size_t i = 0; i < printLimit; i++)
@@ -103,9 +103,6 @@ void PmergeMe::_mergeInsertSortVector(std::vector<int>& arr)
     }
 
     _mergeInsertSortVector(mainChain);
-
-    std::vector<int> pendChain;
-
 
     std::vector<int> reorderedPend;
 
