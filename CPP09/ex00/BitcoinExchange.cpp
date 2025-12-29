@@ -42,7 +42,6 @@ void BitcoinExchange::loadDataBase()
 			continue;
 		dataBase[line.substr(0, pos)] = std::strtod(line.substr(pos + 1).c_str(), NULL);
 	}
-
 	file.close();
 }
 
