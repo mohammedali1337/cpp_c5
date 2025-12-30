@@ -246,7 +246,6 @@ void PmergeMe::_insertInDeque(std::deque<int>& mainChain, std::deque<int>& pendC
     size_t inserted_count = 0;
     int jacobIdx = 1;
     size_t last_pos = 0;
-
     while (inserted_count < n_pend)
     {
         int idx = _getJacobsthal(++jacobIdx);
@@ -259,8 +258,10 @@ void PmergeMe::_insertInDeque(std::deque<int>& mainChain, std::deque<int>& pendC
 
         for (size_t i = current_pos + 1;i > limit ; i--)
         {
-            int val = pendChain[i - 1];
+            std::cout << "current pos: " << i << std::endl;
 
+            int val = pendChain[i - 1];
+            std::cout << "val : " << val << std::endl;
             std::deque<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), val);
             mainChain.insert(it, val);
             inserted_count++;

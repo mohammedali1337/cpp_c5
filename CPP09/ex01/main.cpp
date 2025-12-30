@@ -4,10 +4,9 @@ int main(int c, char **v)
 {
     if (c != 2)
     {
-        std::cout << "Error: " << std::endl;
+        std::cerr << "Error: " << std::endl;
         return 1;
     }
-
     RPN mathEx;
     try
     {
@@ -15,7 +14,7 @@ int main(int c, char **v)
     }
     catch(const std::exception& e)
     {
-        std::cout << e.what() << '\n';
+        std::cerr << e.what() << '\n';
     }
 
     return 0;
