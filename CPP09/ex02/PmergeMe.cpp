@@ -258,10 +258,7 @@ void PmergeMe::_insertInDeque(std::deque<int>& mainChain, std::deque<int>& pendC
 
         for (size_t i = current_pos + 1;i > limit ; i--)
         {
-            std::cout << "current pos: " << i << std::endl;
-
             int val = pendChain[i - 1];
-            std::cout << "val : " << val << std::endl;
             std::deque<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), val);
             mainChain.insert(it, val);
             inserted_count++;

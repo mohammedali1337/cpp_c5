@@ -4,7 +4,7 @@ int main(int c, char **v)
 {
     if (c != 2)
     {
-        std::cerr << "Error: " << std::endl;
+        std::cerr << "Error" << std::endl;
         return 1;
     }
     RPN mathEx;

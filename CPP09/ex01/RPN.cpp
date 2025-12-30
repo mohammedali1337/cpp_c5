@@ -44,6 +44,8 @@ void RPN::run(std::string input)
                     throw std::runtime_error("Error");
                 result = a / b;
             }
+            if (result == std::numeric_limits<double>::infinity() || result == -std::numeric_limits<double>::infinity())
+                throw std::runtime_error("Error");
             this->_stack.push(result);
         }
     }
